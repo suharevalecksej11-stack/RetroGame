@@ -7,21 +7,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Шапка сайта с центрированным пиксельным названием -->
     <header>
       <div id="header-logo" class="logo">TETRIS</div>
     </header>
 
-    <main>
-      <!-- Витрина трех игр -->
+    <main>>
       <section class="welcome-showcase">
-        <h1>Легендарная Трилогия Ретро-Игр</h1>
+        <h1>Легендарная коллекция Ретро-Игр</h1>
         <p style="color: #64748b; font-size: 14px; margin-bottom: 25px">
           Нажмите на любую карточку ниже, чтобы загрузить игру в эмулятор
         </p>
 
         <div class="games-grid">
-          <!-- Карточка-Кнопка 1 -->
           <div
             id="card-tetris"
             class="game-card active"
@@ -36,7 +33,6 @@
               </p>
             </div>
           </div>
-          <!-- Карточка-Кнопка 2 -->
           <div id="card-snake" class="game-card" onclick="switchGame('snake')">
             <img src="img/IMG_6.png" alt="Snake" />
             <div class="game-card-body">
@@ -47,7 +43,6 @@
               </p>
             </div>
           </div>
-          <!-- Карточка-Кнопка 3 -->
           <div id="card-space" class="game-card" onclick="switchGame('space')">
             <img src="img/IMG_3.jpg" alt="Space Impact" />
             <div class="game-card-body">
@@ -58,7 +53,6 @@
               </p>
             </div>
           </div>
-          <!-- Карточка-Кнопка 4 -->
           <div id="card-tanks" class="game-card" onclick="switchGame('tanks')">
             <img src="img/IMG_5.png" alt="Tanks" />
             <div class="game-card-body">
@@ -69,7 +63,6 @@
               </p>
             </div>
           </div>
-          <!-- Карточка-Кнопка 5 -->
           <div
             id="card-pacman"
             class="game-card"
@@ -84,7 +77,6 @@
               </p>
             </div>
           </div>
-          <!-- Карточка-Кнопка 6 -->
           <div
             id="card-racing"
             class="game-card"
@@ -101,8 +93,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Игровая зона -->
       <section id="game-zone" class="game-section">
         <div id="game-title">TETRIS</div>
         <div id="score-board">Очки: <span id="score">0</span></div>
@@ -116,7 +106,6 @@
             <button class="btn" onclick="startCurrentGame()">ИГРАТЬ</button>
           </div>
 
-          <!-- Экран окончания игры -->
           <div id="game-over-screen" class="screen">
             <h2>GAME OVER</h2>
             <p>Счет: <span id="final-score">0</span></p>
@@ -128,21 +117,16 @@
         </div>
       </section>
 <section class="info-blocks-container">
-            <!-- Блок 1: Историческая справка -->
             <div class="info-card">
                 <div class="card-badge color-red">РЕТРОСПЕКТИВА</div>
                 <h3>Эволюция Гейминга</h3>
                 <p>Представленные игры — это фундамент мировой индустрии развлечений. <strong>Pac-Man (1980)</strong> стал первой игрой, породившей массовую поп-культуру и мерч. <strong>Тетрис (1984)</strong> доказал, что идеальный геймплей не требует сложной графики, а мобильные хиты вроде <strong>Snake (1997)</strong> и <strong>Space Impact</strong> превратили обычные телефоны в первые портативные консоли для миллионов людей.</p>
             </div>
-
-            <!-- Блок 2: Техническая архитектура платформы -->
             <div class="info-card">
                 <div class="card-badge color-blue">АРХИТЕКТУРА</div>
                 <h3>Как устроен этот портал?</h3>
                 <p>Весь игровой движок написан на <strong>чистом JavaScript (Vanilla JS)</strong> без использования тяжелых сторонних библиотек (Pixi.js, Phaser) или веб-сборок WebAssembly. Графика рендерится в реальном времени через API <strong>HTML5 Canvas</strong> со стабильной частотой 60 кадров в секунду. Каждый игровой модуль изолирован, что исключает утечки памяти и конфликты при переключении.</p>
             </div>
-
-            <!-- Блок 3: Глобальный Зал Славы -->
             <div class="info-card">
                 <div class="card-badge color-cyan">РЕКОРДЫ</div>
                 <h3>Зал Славы Платформы</h3>
@@ -175,15 +159,11 @@
                     <li>• <strong>В Пакмане:</strong> Не бегайте за привидениями хаотично. Изучите их логику: Красный всегда идет по пятам, а Оранжевый трусливо сворачивает в угол, если вы близко.</li>
                 </ul>
             </div>
-
-            <!-- НОВЫЙ Блок 5: Пасхалки и секреты разработки -->
             <div class="info-card">
                 <div class="card-badge color-purple">ПАСХАЛКИ</div>
                 <h3>Скрытые Механики</h3>
                 <p>В процессе воссоздания игр мы заложили несколько скрытых пасхалок. Например, в <strong>Space Impact</strong> фиолетовый метеорит-босс `[?]` имеет адаптивный ИИ: если у вас осталось последнее сердце, шанс выпадения лечащего бонуса увеличивается до 60%. А физика скольжения танка на льду в <strong>Танчиках</strong> в точности рассчитывает инерцию оригинальной Денди.</p>
             </div>
-
-            <!-- НОВЫЙ Блок 6: Аудио-атмосфера 8-бит -->
             <div class="info-card">
                 <div class="card-badge color-orange">САУНДТРЕК</div>
                 <h3>Аудио код 80-х</h3>
@@ -191,7 +171,6 @@
             </div>
         </section>
 
-        <!-- ТОТ САМЫЙ ОСОБЕННЫЙ БЛОК: Огромный интерактивный Терминал Разработчика на всю ширину -->
         <section class="special-terminal-block">
             <div class="terminal-header">
                 <div class="terminal-buttons">
@@ -208,8 +187,7 @@
                     <p class="code-line sys-msg">> База данных рекордов синхронизирована локально через LocalStorage.</p>
                     <p class="code-line"><span class="green-text">root@arcade:~$</span> <span class="blink">_</span></p>
                 </div>
-                
-                <!-- Интерактивная зона внутри особого блока -->
+
                 <div class="terminal-interactive">
                     <h3>Предложить игру в следующий патч</h3>
                     <p>Какую ретро-классику вы хотите увидеть на портале? Оставьте запрос бортовому компьютеру:</p>
@@ -221,7 +199,6 @@
                 </div>
             </div>
         </section>
-    <!-- Подключаем файлы управления и логики игр -->
     <script src="main.js"></script>
     <script src="tetris.js"></script>
     <script src="snake.js"></script>
