@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ретро Игровой Портал</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Шапка сайта с центрированным пиксельным названием -->
+    <header>
+      <div id="header-logo" class="logo">TETRIS</div>
+    </header>
+
+    <main>
+      <!-- Витрина трех игр -->
+      <section class="welcome-showcase">
+        <h1>Легендарная Трилогия Ретро-Игр</h1>
+        <p style="color: #64748b; font-size: 14px; margin-bottom: 25px">
+          Нажмите на любую карточку ниже, чтобы загрузить игру в эмулятор
+        </p>
+
+        <div class="games-grid">
+          <!-- Карточка-Кнопка 1 -->
+          <div
+            id="card-tetris"
+            class="game-card active"
+            onclick="switchGame('tetris')"
+          >
+            <img src="img/IMG_1.jpg" alt="Tetris" />
+            <div class="game-card-body">
+              <h3>Тетрис (1984)</h3>
+              <p>
+                Культовая головоломка. Сортируйте падающие блоки, очищайте
+                стакан и не допускайте переполнения линий.
+              </p>
+            </div>
+          </div>
+          <!-- Карточка-Кнопка 2 -->
+          <div id="card-snake" class="game-card" onclick="switchGame('snake')">
+            <img src="img/IMG_6.png" alt="Snake" />
+            <div class="game-card-body">
+              <h3>Змейка (1997)</h3>
+              <p>
+                Легенда телефонов Nokia. Собирайте еду, растите в длину, но
+                берегите свой собственный хвост и стены.
+              </p>
+            </div>
+          </div>
+          <!-- Карточка-Кнопка 3 -->
+          <div id="card-space" class="game-card" onclick="switchGame('space')">
+            <img src="img/IMG_3.jpg" alt="Space Impact" />
+            <div class="game-card-body">
+              <h3>Space Impact (2000)</h3>
+              <p>
+                Космический скролл-шутер. Уничтожайте волны астероидов,
+                уклоняйтесь от угроз и сбивайте секретные метеориты.
+              </p>
+            </div>
+          </div>
+          <!-- Карточка-Кнопка 4 -->
+          <div id="card-tanks" class="game-card" onclick="switchGame('tanks')">
+            <img src="img/IMG_5.png" alt="Tanks" />
+            <div class="game-card-body">
+              <h3>Танчики (1985)</h3>
+              <p>
+                Легендарный Battle City. Защищайте базу, уничтожайте танки
+                противника и пробивайте кирпичные стены.
+              </p>
+            </div>
+          </div>
+          <!-- Карточка-Кнопка 5 -->
+          <div
+            id="card-pacman"
+            class="game-card"
+            onclick="switchGame('pacman')"
+          >
+            <img src="img/IMG_2.jpg" alt="Pac-Man" />
+            <div class="game-card-body">
+              <h3>Pac-Man (1980)</h3>
+              <p>
+                Классика аркадных залов. Ешьте точки в лабиринте и уклоняйтесь
+                от цветных привидений.
+              </p>
+            </div>
+          </div>
+          <!-- Карточка-Кнопка 6 -->
+          <div
+            id="card-racing"
+            class="game-card"
+            onclick="switchGame('racing')"
+          >
+            <img src="img/IMG_4.png" alt="Racing" />
+            <div class="game-card-body">
+              <h3>Ретро Гонки</h3>
+              <p>
+                Вид сверху, 3 полосы. Объезжайте машины, собирайте монеты и
+                подбирайте канистры, чтобы не кончалось топливо.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Игровая зона -->
+      <section id="game-zone" class="game-section">
+        <div id="game-title">TETRIS</div>
+        <div id="score-board">Очки: <span id="score">0</span></div>
+
+        <div id="game-container">
+          <canvas id="gameCanvas" width="240" height="480"></canvas>
+
+          <!-- Экран готовности -->
+          <div id="start-screen" class="screen">
+            <h2 style="color: #00ffcc">READY?</h2>
+            <button class="btn" onclick="startCurrentGame()">ИГРАТЬ</button>
+          </div>
+
+          <!-- Экран окончания игры -->
+          <div id="game-over-screen" class="screen">
+            <h2>GAME OVER</h2>
+            <p>Счет: <span id="final-score">0</span></p>
+            <button class="btn" onclick="restartCurrentGame()">Заново</button>
+          </div>
+        </div>
+        <div id="controls-hint" class="hint">
+          Управление: Стрелки Влево / Вправо / Вниз / Вверх (поворот)
+        </div>
+      </section>
+<section class="info-blocks-container">
+            <!-- Блок 1: Историческая справка -->
+            <div class="info-card">
+                <div class="card-badge color-red">РЕТРОСПЕКТИВА</div>
+                <h3>Эволюция Гейминга</h3>
+                <p>Представленные игры — это фундамент мировой индустрии развлечений. <strong>Pac-Man (1980)</strong> стал первой игрой, породившей массовую поп-культуру и мерч. <strong>Тетрис (1984)</strong> доказал, что идеальный геймплей не требует сложной графики, а мобильные хиты вроде <strong>Snake (1997)</strong> и <strong>Space Impact</strong> превратили обычные телефоны в первые портативные консоли для миллионов людей.</p>
+            </div>
+
+            <!-- Блок 2: Техническая архитектура платформы -->
+            <div class="info-card">
+                <div class="card-badge color-blue">АРХИТЕКТУРА</div>
+                <h3>Как устроен этот портал?</h3>
+                <p>Весь игровой движок написан на <strong>чистом JavaScript (Vanilla JS)</strong> без использования тяжелых сторонних библиотек (Pixi.js, Phaser) или веб-сборок WebAssembly. Графика рендерится в реальном времени через API <strong>HTML5 Canvas</strong> со стабильной частотой 60 кадров в секунду. Каждый игровой модуль изолирован, что исключает утечки памяти и конфликты при переключении.</p>
+            </div>
+
+            <!-- Блок 3: Глобальный Зал Славы -->
+            <div class="info-card">
+                <div class="card-badge color-cyan">РЕКОРДЫ</div>
+                <h3>Зал Славы Платформы</h3>
+                <table class="highscore-table">
+                    <thead>
+                        <tr>
+                            <th>Дисциплина</th>
+                            <th>Абсолютный Рекорд</th>
+                            <th>Геймер</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TETRIS</td><td>99,900</td><td>[CYBER_PUNK]</td></tr>
+                        <tr><td>SNAKE</td><td>4,200</td><td>[Nokia_User]</td></tr>
+                        <tr><td>SPACE IMPACT</td><td>15,500</td><td>[NEO_STAR]</td></tr>
+                        <tr><td>BATTLE CITY</td><td>22,400</td><td>[TANK_MAN]</td></tr>
+                        <tr><td>PAC-MAN</td><td>3,333,360</td><td>[BILLY_M]</td></tr>
+                        <tr><td>RETRO RACING</td><td>8,900</td><td>[TURBO_99]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Блок 4: Кодекс и Советы по тактике -->
+            <div class="info-card">
+                <div class="card-badge color-yellow">ГАЙД</div>
+                <h3>Секреты Профессионалов</h3>
+                <ul>
+                    <li>• <strong>В Танчиках:</strong> Никогда не бросайте базу ради бонуса. Сначала зажмите врага в тупике, а затем активируйте щит или супер-атаку.</li>
+                    <li>• <strong>В Гонках:</strong> Используйте ускорение (кнопка вверх) только на прямых участках, когда видите зеленую канистру, иначе пустой бак застанет вас врасплох.</li>
+                    <li>• <strong>В Пакмане:</strong> Не бегайте за привидениями хаотично. Изучите их логику: Красный всегда идет по пятам, а Оранжевый трусливо сворачивает в угол, если вы близко.</li>
+                </ul>
+            </div>
+
+            <!-- НОВЫЙ Блок 5: Пасхалки и секреты разработки -->
+            <div class="info-card">
+                <div class="card-badge color-purple">ПАСХАЛКИ</div>
+                <h3>Скрытые Механики</h3>
+                <p>В процессе воссоздания игр мы заложили несколько скрытых пасхалок. Например, в <strong>Space Impact</strong> фиолетовый метеорит-босс `[?]` имеет адаптивный ИИ: если у вас осталось последнее сердце, шанс выпадения лечащего бонуса увеличивается до 60%. А физика скольжения танка на льду в <strong>Танчиках</strong> в точности рассчитывает инерцию оригинальной Денди.</p>
+            </div>
+
+            <!-- НОВЫЙ Блок 6: Аудио-атмосфера 8-бит -->
+            <div class="info-card">
+                <div class="card-badge color-orange">САУНДТРЕК</div>
+                <h3>Аудио код 80-х</h3>
+                <p>Музыкальное сопровождение ретро-игр строилось по строгим законам чиптюна. Старые консоли (NES, GameBoy) имели всего от 3 до 5 звуковых каналов: две пульсирующие волны для мелодии, одну треугольную для баса и один шумовой канал для взрывов. Композиторам приходилось проявлять гениальность, чтобы создавать шедевры в условиях килобайтных ограничений.</p>
+            </div>
+        </section>
+
+        <!-- ТОТ САМЫЙ ОСОБЕННЫЙ БЛОК: Огромный интерактивный Терминал Разработчика на всю ширину -->
+        <section class="special-terminal-block">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="t-btn close"></span>
+                    <span class="t-btn minimize"></span>
+                    <span class="t-btn expand"></span>
+                </div>
+                <div class="terminal-title">system_operator@arcade_portal:~</div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-text">
+                    <p class="code-line"><span class="green-text">root@arcade:~$</span> ./init_portal_status.sh</p>
+                    <p class="code-line sys-msg">> Загрузка модулей: Тетрис [OK] | Змейка [OK] | Космос [OK] | Танки [OK] | Пакман [OK] | Гонки [OK]</p>
+                    <p class="code-line sys-msg">> База данных рекордов синхронизирована локально через LocalStorage.</p>
+                    <p class="code-line"><span class="green-text">root@arcade:~$</span> <span class="blink">_</span></p>
+                </div>
+                
+                <!-- Интерактивная зона внутри особого блока -->
+                <div class="terminal-interactive">
+                    <h3>Предложить игру в следующий патч</h3>
+                    <p>Какую ретро-классику вы хотите увидеть на портале? Оставьте запрос бортовому компьютеру:</p>
+                    <div class="terminal-form">
+                        <input type="text" id="gameRequestInput" placeholder="Например: Mario, Contra, Bomberman..." autocomplete="off">
+                        <button onclick="sendGameRequest()">ОТПРАВИТЬ</button>
+                    </div>
+                    <div id="terminalResponse" class="terminal-response-msg"></div>
+                </div>
+            </div>
+        </section>
+    <!-- Подключаем файлы управления и логики игр -->
+    <script src="main.js"></script>
+    <script src="tetris.js"></script>
+    <script src="snake.js"></script>
+    <script src="space.js"></script>
+    <script src="tanks.js"></script>
+    <script src="pacman.js"></script>
+    <script src="racing.js"></script>
+  </body>
+</html>
